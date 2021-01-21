@@ -1,0 +1,129 @@
+body{
+    background: url("../icons/jungleBg.jpg");
+    max-height: 100vh;
+    font-family: Verdana, arial, helvetica, sans-serif;
+    font-size: 14px;
+}
+
+#gameContainer{
+    width: 100%;
+}
+
+.hidden{
+    display: none;
+}
+
+/* play modal */
+
+#disabledBg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0 ,0 , 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#playModal{
+    width: 20%;
+    background-color: white;
+    padding: 3%;
+    min-height: 150px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#replay{
+    border: 2px solid black;
+    color: black;
+    border-radius: 0.4rem;
+    margin: 1em 0 1em 0;
+    width: 70px;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 0.7em;
+    text-transform: uppercase;
+    transition: border 1s, color 1s, transform 1s;
+}
+
+#replay:hover{
+    border: 2px solid #56cbf9;
+    color: #56cbf9;
+    transform: scale(1.2); 
+}
+
+/* Game */
+
+#board{
+    margin: 0 auto;
+    height: 600px;
+    width: 600px;
+    line-height: 0;
+}
+
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4% auto 1.5% auto;
+    width: 600px;
+}
+
+#instructions{
+    text-align: center;
+    width: 65%;
+    font-family: 'Hanalei Fill', cursive, serif;
+    font-size: 12px;
+}
+
+/* back button */    
+
+.btn-back {
+    border: 2px solid black;
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    border-radius: 0.4rem;
+    margin: 1em 0 1em 0;
+    width: 80px;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 0.7em;
+    text-transform: uppercase;
+    transition: border 1s, color 1s, transform 1s;
+}
+
+    .btn-back:hover{
+        border: 2px solid #56cbf9;
+        color: #56cbf9;
+        text-decoration: none;
+        transform: scale(1.2); 
+    }
+
+.scoreboard{
+    text-align: center;
+    font-family: 'Hanalei Fill', cursive, serif;
+    font-size: 24px;
+}
+
+/* elements */
+
+.case{
+    height: 20px;
+    width: 20px;
+    background-color: #45503B;
+    display: inline-block;
+}
+.apple{
+    background: url('../icons/apple.png'), #45503B;
+    background-repeat: no-repeat;
+}
+.snake{
+    background-color: red;
+}
