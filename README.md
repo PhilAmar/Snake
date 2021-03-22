@@ -18,8 +18,4 @@ Download zip
 ````
 And play on your favorite web browser.
 
-#### Play
-
-[direct link](https://pamarger.fr/snake/game.html "Snake game")
-
 
