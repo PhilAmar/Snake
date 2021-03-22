@@ -29,29 +29,42 @@ body{
 
 #playModal{
     width: 20%;
-    background-color: white;
+    background-color: #AF3800;
     padding: 3%;
     min-height: 150px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 6px -1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 5px 5px 6px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 6px -1px rgba(0,0,0,0.75);
 }
 
-#replay{
+#replayText{
+    font-family: 'Hanalei Fill', cursive, serif;
+    color: antiquewhite;
+    font-size: 16px;
+    text-align: center;
+}
+
+#replayBtn{
     border: 2px solid black;
     color: black;
     border-radius: 0.4rem;
     margin: 1em 0 1em 0;
     width: 70px;
     text-align: center;
+    font-family: 'Hanalei Fill', cursive, serif;
     font-size: 0.8em;
     padding: 0.7em;
     text-transform: uppercase;
     transition: border 1s, color 1s, transform 1s;
+    cursor: pointer;
 }
 
-#replay:hover{
+#replayBtn:hover{
     border: 2px solid #56cbf9;
     color: #56cbf9;
     transform: scale(1.2); 
