@@ -29,7 +29,7 @@ function loadGame(){
 
     //player object
     let player = {
-    body : [{positionX: 14, positionY: 14}, {positionX: 15, positionY: 14},],
+    body : [{positionX: 15, positionY: 14}, {positionX: 14, positionY: 14},],
     head : function(){return this.body[this.body.length - 1]},
     lastDirection : DIR_NONE,
     moveOnDirection : function(oneDirection){
@@ -82,7 +82,7 @@ function loadGame(){
 
     function instruction(){
         const instructions = document.getElementById('instructions');
-        instructions.innerHTML = "Pour lancer le jeu déplacez le serpent avec votre clavier";
+        instructions.innerHTML = "To start the game, move the snake in any direction";
 
         setTimeout(function(){ instructions.classList.add('hidden'); }, 5000);
     }
@@ -116,7 +116,13 @@ function loadGame(){
 
         const replayButton = document.createElement('div');
         replayButton.textContent = "Replay"
-        replayButton.setAttribute("id", "replay")
+        replayButton.setAttribute("id", "replayBtn")
+
+        const replayText = document.createElement('p');
+        replayText.textContent = "You lose, wanna play again ?"
+        replayText.setAttribute("id", "replayText")
+
+        modal.appendChild(replayText);
         modal.appendChild(replayButton);
         
         replayButton.addEventListener('click', function(){
@@ -148,6 +154,16 @@ function loadGame(){
         return allCases[indice].classList.contains("apple");
     };
 
+    /*function checkForBody(player){
+        let head = player.head();
+        let body = player.body;
+        for(let j = 0; j < body.length; j++){
+            if(head == body[j]){
+
+            }
+        }
+    }*/
+
     function updateSnakePosition(){
         const allPlayersCases = document.querySelectorAll(".case.snake");
 			for(let j = 0; j < allPlayersCases.length; j++){
@@ -155,9 +171,16 @@ function loadGame(){
             }
 				                  
 		const allCases = document.querySelectorAll(".case");
-			for (let i =0;i < player.body.length; i++){
+			for(let i = 0; i < player.body.length; i++){
 				let indice = player.body[i].positionX * DIM_X + player.body[i].positionY;
-				allCases[indice].classList.add("snake");
+                if(indice < 0 || indice > 900){
+                    board.classList.add('hidden');
+                    replay();
+                    return;
+                }
+                else{
+                    allCases[indice].classList.add("snake");
+                }
             }
         checkForEnding();
     };
@@ -186,7 +209,6 @@ function loadGame(){
         else if(oneDirection === Key_DOWN){
             return player.head().positionX < DIM_X;
         }
-        // left and right are ok
         else if(oneDirection === Key_LEFT){
             return player.head().positionY > -1;
         }
@@ -205,8 +227,11 @@ function loadGame(){
 
     function checkForEnding(){
         
-        // Check if : player head is crashed on his own body
-
+        // Check if player head is crashed on his own body
+        /*
+        head = last item of body table
+        */
+    
         if(!isMoveOk(player, player.lastDirection)){
             board.classList.add('hidden')
             replay();
@@ -218,7 +243,7 @@ function loadGame(){
         createBoard();
         updateSnakePosition();
         document.addEventListener("keydown", listenToEvent);
-        setInterval(onTick, 100);
+        setInterval(onTick, 70);
     };
 
     initGame();
